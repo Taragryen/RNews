@@ -1,0 +1,27 @@
+version: "3"
+
+services:
+  mongo:
+    image: mongo:latest
+    container_name: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    command: --auth
+    volumes:
+      - ./mongo/initdb:/docker-entrypoint-initdb.d
+      - ./mongo/datadir:/data/db
+      - ./mongo/configdb:/data/configdb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: xushizhao
+      MONGO_INITDB_ROOT_PASSWORD: xushizhao
+      MONGO_INITDB_DATABASE: mydb
+      TZ: Asia/Tokyo
+  mongo-express:
+    image: mongo-express
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: xushizhao
+      ME_CONFIG_MONGODB_ADMINPASSWORD: xushizhao
