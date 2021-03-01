@@ -65,3 +65,17 @@ docker-compose up -d
 ```
 
 打开浏览器，输入localhost:8081，看到Mongo Express内容表明搭建成功！
+
+### 二、启动backend
+
+```bash
+# 进入backend目录
+cd backend/
+
+# 安装依赖
+npm install 或 yarn
+
+# 启动
+npm run start 或 yarn start
+```
+
