@@ -75,7 +75,7 @@ cd backend/
 # 安装依赖
 npm install 或 yarn
 
-# 启动
+# 启动项目
 npm run start 或 yarn start
 ```
 
