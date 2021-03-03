@@ -89,3 +89,16 @@ npm install 或 yarn
 npm run start 或 yarn start
 ```
 
+三、启动frontend
+
+```bash
+# 进入supervisor目录
+cd supervisor/
+
+# 安装依赖
+npm install 或 yarn
+
+# 启动项目
+npm run dev 或 yarn dev
+```
+
