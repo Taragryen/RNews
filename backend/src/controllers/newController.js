@@ -9,6 +9,7 @@ exports.addNew = async (ctx) => {
     category: requestBody.category,
     pic: requestBody.pic,
     content: requestBody.content,
+    readCount: parseInt(Math.random() * 200),
   });
   const result = {
     msg: "ok",
@@ -59,6 +60,21 @@ exports.getNews = async (ctx) => {
   ctx.body = result;
 };
 
+exports.getTopNews = async (ctx) => {
+  const result = {
+    msg: "ok",
+    data: {},
+  };
+  const news = await New.find({}, { __v: 0 }, (err) => {
+    if (err) result.msg = err;
+  })
+    .sort({ readCount: -1 })
+    .limit(10);
+  result.data.total = news.length;
+  result.data.list = news;
+  ctx.body = result;
+};
+
 exports.getNew = async (ctx) => {
   const result = {
     msg: "ok",
@@ -89,3 +105,7 @@ exports.updateNew = async (ctx) => {
   result.data = resp;
   ctx.body = result;
 };
+
+// exports.updateNewReadCount = async (ctx) => {
+//   const
+// }

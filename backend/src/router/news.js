@@ -8,6 +8,7 @@ router
   .delete("/news/:id", newController.deleteNew)
   .get("/news", newController.getNews)
   .put("/news/:id", newController.updateNew)
-  .get("/news/:id", newController.getNew);
+  .get("/news/:id", newController.getNew)
+  .get("/top", newController.getTopNews);
 
 module.exports = router.routes();

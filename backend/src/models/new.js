@@ -7,8 +7,9 @@ const NewSchema = new Schema({
   title: {
     type: String,
     required: true,
+    index: true,
   },
-  time: {
+  releaseTime: {
     type: Date,
     default: Date.now,
   },
@@ -26,6 +27,15 @@ const NewSchema = new Schema({
   },
   content: {
     type: String,
+    required: true,
+  },
+  isReviewed: {
+    type: Boolean,
+    default: false,
+  },
+  readCount: {
+    type: Number,
+    default: 0,
     required: true,
   },
 });

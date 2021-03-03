@@ -29,7 +29,7 @@ exports.getCategories = async (ctx) => {
 
 exports.deleteCategory = async (ctx) => {
   const resp = {
-    msg: "",
+    msg: "ok",
     result: {},
   };
   try {
@@ -39,4 +39,23 @@ exports.deleteCategory = async (ctx) => {
     resp.msg = error;
   }
   ctx.body = resp;
+};
+
+exports.updateCategory = async (ctx) => {
+  const requestBody = ctx.request.body;
+  const result = {
+    msg: "ok",
+    data: {},
+  };
+  const resp = await New.updateOne(
+    { _id: ctx.params.id },
+    {
+      $set: { ...requestBody },
+    },
+    (err) => {
+      result.msg = err;
+    }
+  );
+  result.data = resp;
+  ctx.body = result;
 };
