@@ -64,6 +64,16 @@ docker-compose build
 docker-compose up -d
 ```
 
+```bash
+# 打开终端输入
+docker ps -a
+
+# 可以看见以下内容
+CONTAINER ID   IMAGE           COMMAND                  CREATED       STATUS             PORTS                      NAMES
+59e3ddd4d8b5   mongo:latest    "docker-entrypoint.s…"   10 days ago   Up About an hour   0.0.0.0:27017->27017/tcp   mongo
+1060b874e482   mongo-express   "tini -- /docker-ent…"   10 days ago   Up About an hour   0.0.0.0:8081->8081/tcp     db_mongo-express_1
+```
+
 打开浏览器，输入localhost:8081，看到Mongo Express内容表明搭建成功！
 
 ### 二、启动backend
