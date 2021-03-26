@@ -8,4 +8,5 @@ export type New = {
   _id: string;
   isReviewed: boolean;
   releaseTime: string;
+  description: string;
 };

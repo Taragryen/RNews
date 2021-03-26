@@ -1,0 +1,22 @@
+.order {
+  margin-right: 1rem;
+  width: 2.5rem;
+  text-align: center;
+  display: inline-block;
+}
+
+.before {
+  color: red;
+  font-weight: bold;
+}
+
+.after {
+  color: orange;
+}
+
+.readCount {
+  color: rgba(0, 0, 0, 0.45);
+  width: 2.5rem;
+  text-align: center;
+  float: right;
+}

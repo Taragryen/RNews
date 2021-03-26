@@ -1,62 +1,80 @@
+import React from "react";
 import Head from "next/head";
-import Layout, { siteTitle } from "../components/layout";
+// import Layout, { siteTitle } from "../components/layout";
 import utilStyles from "../styles/utils.module.css";
-import { getSortedPostsData } from "../lib/posts";
+import { List, Avatar, Space, Typography, Tooltip, Layout } from "antd";
+import { ShareAltOutlined, EyeOutlined } from "@ant-design/icons";
 import Link from "next/link";
-import Date from "../components/date";
 import { GetStaticProps } from "next";
 import { New } from "../common/types";
+import { dateFormat } from "../utils/dateFormat";
+import { NewsList } from "../components/NewsList";
+import { TopNews } from "../components/TopNews";
 
+const IconText = ({
+  icon,
+  text,
+  title,
+}: {
+  text: string;
+  icon: any;
+  title: string;
+}) => (
+  <Tooltip title={title}>
+    <Space>
+      {React.createElement(icon)}
+      {text}
+    </Space>
+  </Tooltip>
+);
+
+const { Header, Sider, Footer, Content } = Layout;
+
+/**
+ * 首页
+ */
 export default function Home({ allNewsData }: { allNewsData: New[] }) {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={utilStyles.headingMd}>
-        <p>
-          Hello, I'm Ricardo. I'm a software engineer. You can contact me on{" "}
-          <a href="www,baidu.com">Twitter</a>
-        </p>
-
-        <p>Welcome to my blog!</p>
-
-        <p>
-          (This is a sample website - you’ll be building a site like this on{" "}
-          <a href="https://www.nextjs.cn/learn">Next.js tutorial</a>.)
-        </p>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allNewsData.map(({ _id, releaseTime, title }) => (
-            <li className={utilStyles.listItem} key={title}>
-              <Link href={`/posts/${_id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={releaseTime} />
-              </small>
-            </li>
-          ))}
-          <li className={utilStyles.listItem} key="braft-editor">
-            <Link href={`/posts/braft-editor`}>
-              <a>braft-editor</a>
-            </Link>
-            <br />
-            <small className={utilStyles.lightText}>
-              <Date dateString="2021-03-21" />
-            </small>
-          </li>
-        </ul>
-      </section>
+    // <Layout home>
+    //   <Head>
+    //     <title>{siteTitle}</title>
+    //   </Head>
+    //   <NewsList allNewsData={allNewsData} />
+    //   <TopNews />
+    // </Layout>
+    <Layout>
+      <Layout>
+        <Sider theme="light" width="20rem">
+          <TopNews />
+        </Sider>
+        <Content style={{ backgroundColor: "white" }}>
+          <NewsList allNewsData={allNewsData} />
+        </Content>
+      </Layout>
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allNewsData = getSortedPostsData();
+  const allNewsData: New[] = [];
+  for (let i = 0; i < 11; i++) {
+    allNewsData.push({
+      isReviewed: false,
+      readCount: "174",
+      _id: "605d79c328806b4d3a352fa6",
+      title:
+        "软件学院关于2021届毕业生2020-2021学年优秀学生奖学金评选结果的公示",
+      src: "华南师范大学软件学院",
+      category: "campus",
+      pic:
+        "https://gw.alipayobjects.com/zos/rmsportal/mqaQswcyDLcXyDKnZfES.png",
+      content:
+        '<p style="text-align:start;text-indent:2em;"><span style="color:#000000"><span style="font-size:18px">根据《关于做好2021届毕业生2020-2021学年优秀学生奖学金评选工作的通知》，华南师范大学软件学院秉持着公平、公正、公开的原则，严格遵照通知精神认真开展2021届毕业生2020-2021学年优秀学生奖学金评选工作。</span></span></p><p style="text-align:start;text-indent:2em;"><span style="color:#000000"><span style="font-size:18px">通过公示细则、学生申报、年级审核、学院审核等环节，2021届毕业生2020-2021学年优秀学生奖学金评选结果已经产生，共计31人，现进行公示，公示时长为5天。如有异议，请于3月30日前发送问题至863747089@qq.com邮箱。</span></span></p><p style="text-align:center;"><strong><span style="color:#000000"><span style="font-size:18px">综合奖</span></span></strong></p><p style="text-align:start;text-indent:2em;"><span style="color:#000000"><span style="font-size:18px">一等奖（共3人）：郑健南（82.61）、黄伟聪（82.19）、李嘉惠（79.92）</span></span></p><p style="text-align:start;text-indent:2em;"><span style="color:#000000"><span style="font-size:18px">二等奖（共9人）：岑少琪（79.09）、刘威宏（74.66）、麦成源  （73.93）、何志豪（73.73）、欧阳信（71.89）、黄文鑫（71.37）、陈冠程（71.31）、温彩敏（70.38）、江佳凌（70.15）</span></span></p><p style="text-align:center;text-indent:2em;"><span style="color:#000000"><span style="font-size:18px">三等奖（共9人）：张宇健（70.13）、林育妍（69.18）、朱桂鑫（67.53）、杨贵强（67.21）、朱小杰  （66.97）、陈颖聪（66.31）、叶特（66.27）、杨满（66.02）、余远政（63.19）<strong>单项奖</strong></span></span></p><p style="text-align:start;text-indent:2em;"><span style="color:#000000"><span style="font-size:18px">思想道德：共0人</span></span></p><p style="text-align:start;text-indent:2em;"><span style="color:#000000"><span style="font-size:18px">学业表现（共4人）：陈布达（94.79）、孙铭哲（94.36）、张晓基（93.75）、陈晓伟（89.16）</span></span></p><p style="text-align:start;text-indent:2em;"><span style="color:#000000"><span style="font-size:18px">专业技能与创新（共2人）：胡昊天（99.64）、钟凤琪（73.91）</span></span></p><p style="text-align:start;text-indent:2em;"><span style="color:#000000"><span style="font-size:18px">艺体素养：共0人</span></span></p><p style="text-align:start;text-indent:2em;"><span style="color:#000000"><span style="font-size:18px">社会实践与创业（共4人）：郑雅芝（100）、蔡洪华（66.67）、陈纯纯（44.44）、郭志权（33.33）</span></span></p><p></p><p style="text-align:right;"><span style="color:#000000"><span style="font-size:18px">华南师范大学软件学院学生工作办公室</span></span></p><p style="text-align:right;"></p><p></p><p style="text-align:right;"><span style="color:#000000"><span style="font-size:18px">2021年3月25日</span></span></p>\n',
+      releaseTime: "2021-03-26T06:05:55.541Z",
+      description:
+        "根据《关于做好2021届毕业生2020-2021学年优秀学生奖学金评选工作的通知》，华南师范大学软件学院秉持着公平、公正、公开的原则，严格遵照通知精神认真开展2021届毕业生2020-2021学年优秀学生奖学金评选工作。",
+    });
+  }
   return {
     props: {
       allNewsData,

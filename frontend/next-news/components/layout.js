@@ -6,7 +6,9 @@ import { Button } from "antd";
 import { LeftOutlined } from "@ant-design/icons";
 
 const name = "Ricardo";
-export const siteTitle = "Next.js Sample Website";
+
+/**网站名称 */
+export const siteTitle = "NextNews";
 
 export default function Layout({ children, home }) {
   return (
