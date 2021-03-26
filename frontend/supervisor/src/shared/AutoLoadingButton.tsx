@@ -4,7 +4,7 @@ import { useState } from 'react';
 import React from 'react';
 import useIsMountedRef from '../utils/useIsMountedRef';
 
-export function AutoLoadingButton({
+function AutoLoadingButton({
   onLoadingClick,
   ...props
 }: Omit<ButtonProps, 'loading' | 'onClick'> & {
@@ -34,3 +34,5 @@ export function AutoLoadingButton({
     />
   );
 }
+
+export default AutoLoadingButton;

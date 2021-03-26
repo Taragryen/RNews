@@ -1,6 +1,9 @@
 const New = require("../models/new");
 const { errorCapture } = require("../utils");
 
+/**
+ * 发布新闻
+ */
 exports.addNew = async (ctx) => {
   const requestBody = ctx.request.body;
   const temp = new New({
@@ -24,6 +27,9 @@ exports.addNew = async (ctx) => {
   ctx.body = result;
 };
 
+/**
+ * 根据_id删除新闻
+ */
 exports.deleteNew = async (ctx) => {
   const result = {
     msg: "ok",
@@ -35,10 +41,13 @@ exports.deleteNew = async (ctx) => {
   ctx.body = result;
 };
 
+/**
+ * 获取新闻
+ */
 exports.getNews = async (ctx) => {
   const limit = ctx.request.query.limit || null;
   const offset = ctx.request.query.offset || null;
-  const query = ctx.request.query.query || {};
+  const query = ctx.request.query.query || "";
   const reg = new RegExp(query, "i");
   const result = {
     msg: "ok",
@@ -60,6 +69,9 @@ exports.getNews = async (ctx) => {
   ctx.body = result;
 };
 
+/**
+ * 获取热榜新闻
+ */
 exports.getTopNews = async (ctx) => {
   const result = {
     msg: "ok",
