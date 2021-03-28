@@ -1,5 +1,5 @@
 {
-  "name": "learn-starter",
+  "name": "next-news-browse",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "antd": "^4.14.0",
+    "axios": "^0.21.1",
     "fs": "^0.0.1-security",
     "gray-matter": "^4.0.2",
     "moment": "^2.29.1",
