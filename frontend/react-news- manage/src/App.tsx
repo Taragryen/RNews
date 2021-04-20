@@ -1,50 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { HashRouter } from 'react-router-dom';
+import { RootRouting } from './app/RootRouting';
 import './App.css';
-import { Button } from 'antd';
 
+/**根组件 */
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Hello Vite + React!</p>
-        <p>
-          <Button type="primary">antd button</Button>
-        </p>
-        <p>
-          <Button
-            danger
-            type="primary"
-            onClick={() => setCount(count => count + 1)}
-          >
-            count is: {count}
-          </Button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    <HashRouter>
+      <RootRouting />
+    </HashRouter>
   );
 }
 

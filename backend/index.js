@@ -5,6 +5,7 @@ const { port } = require("./src/config");
 const logger = require("koa-logger");
 const Moment = require("moment");
 const bodyparser = require("koa-bodyparser");
+const cors = require("koa2-cors");
 require("./src/dbHelper");
 
 // 实例化koa
@@ -18,7 +19,11 @@ app.use(
   })
 );
 
+// body解析
 app.use(bodyparser());
+
+// 跨域处理
+app.use(cors());
 
 // 配置路由
 app.use(router.routes()).use(router.allowedMethods());

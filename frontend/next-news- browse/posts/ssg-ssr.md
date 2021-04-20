@@ -1,19 +1,31 @@
 ---
-title: 'When to Use Static Generation v.s. Server-side Rendering'
-date: '2020-01-02'
+title: "软件学院关于2021届毕业生2020-2021学年优秀学生奖学金评选结果的公示"
+date: "2020-01-02"
 ---
 
-We recommend using **Static Generation** (with and without data) whenever possible because your page can be built once and served by CDN, which makes it much faster than having a server render the page on every request.
+根据《关于做好 2021 届毕业生 2020-2021 学年优秀学生奖学金评选工作的通知》，华南师范大学软件学院秉持着公平、公正、公开的原则，严格遵照通知精神认真开展 2021 届毕业生 2020-2021 学年优秀学生奖学金评选工作。
+通过公示细则、学生申报、年级审核、学院审核等环节，2021 届毕业生 2020-2021 学年优秀学生奖学金评选结果已经产生，共计 31 人，现进行公示，公示时长为 5 天。如有异议，请于 3 月 30 日前发送问题至863747089@qq.com邮箱。
 
-You can use Static Generation for many types of pages, including:
+**综合奖**
 
-- Marketing pages
-- Blog posts
-- E-commerce product listings
-- Help and documentation
+一等奖（共 3 人）：郑健南（82.61）、黄伟聪（82.19）、李嘉惠（79.92）
 
-You should ask yourself: "Can I pre-render this page **ahead** of a user's request?" If the answer is yes, then you should choose Static Generation.
+二等奖（共 9 人）：岑少琪（79.09）、刘威宏（74.66）、麦成源 （73.93）、何志豪（73.73）、欧阳信（71.89）、黄文鑫（71.37）、陈冠程（71.31）、温彩敏（70.38）、江佳凌（70.15）
 
-On the other hand, Static Generation is **not** a good idea if you cannot pre-render a page ahead of a user's request. Maybe your page shows frequently updated data, and the page content changes on every request.
+三等奖（共 9 人）：张宇健（70.13）、林育妍（69.18）、朱桂鑫（67.53）、杨贵强（67.21）、朱小杰 （66.97）、陈颖聪（66.31）、叶特（66.27）、杨满（66.02）、余远政（63.19）
 
-In that case, you can use **Server-Side Rendering**. It will be slower, but the pre-rendered page will always be up-to-date. Or you can skip pre-rendering and use client-side JavaScript to populate data.
+**单项奖**
+
+思想道德：共 0 人
+
+学业表现（共 4 人）：陈布达（94.79）、孙铭哲（94.36）、张晓基（93.75）、陈晓伟（89.16）
+
+专业技能与创新（共 2 人）：胡昊天（99.64）、钟凤琪（73.91）
+
+艺体素养：共 0 人
+
+社会实践与创业（共 4 人）：郑雅芝（100）、蔡洪华（66.67）、陈纯纯（44.44）、郭志权（33.33）
+
+华南师范大学软件学院学生工作办公室
+
+2021 年 3 月 25 日

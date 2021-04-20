@@ -2,20 +2,20 @@ version: "3"
 
 services:
   mongo:
-    image: mongo:latest
-    container_name: mongo
+    image: mongo:latest #镜像
+    container_name: mongo #容器名
     restart: always
     ports:
-      - 27017:27017
+      - 27017:27017 #端口
     command: --auth
     volumes:
       - ./mongo/initdb:/docker-entrypoint-initdb.d
       - ./mongo/datadir:/data/db
       - ./mongo/configdb:/data/configdb
     environment:
-      MONGO_INITDB_ROOT_USERNAME: xushizhao
-      MONGO_INITDB_ROOT_PASSWORD: xushizhao
-      MONGO_INITDB_DATABASE: mydb
+      MONGO_INITDB_ROOT_USERNAME: xushizhao #root用户名
+      MONGO_INITDB_ROOT_PASSWORD: xushizhao #root密码
+      MONGO_INITDB_DATABASE: mydb #数据库名称
       TZ: Asia/Tokyo
   mongo-express:
     image: mongo-express
@@ -23,5 +23,5 @@ services:
     ports:
       - 8081:8081
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: xushizhao
-      ME_CONFIG_MONGODB_ADMINPASSWORD: xushizhao
+      ME_CONFIG_MONGODB_ADMINUSERNAME: xushizhao #登陆到MongoDB的用户名
+      ME_CONFIG_MONGODB_ADMINPASSWORD: xushizhao #登陆到MongoDB的密码

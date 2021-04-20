@@ -12,6 +12,7 @@ exports.addNew = async (ctx) => {
     category: requestBody.category,
     pic: requestBody.pic,
     content: requestBody.content,
+    description: requestBody.description,
     readCount: parseInt(Math.random() * 200),
   });
   const result = {
