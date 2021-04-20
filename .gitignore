@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 node_modules
 .DS_Store
 dist
 dist-ssr
 *.local
+=======
+# misc
+.DS_Store
+>>>>>>> 41bf596b601cd9d2c23b8d7ba58b4ba113820ccb

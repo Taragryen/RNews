@@ -92,8 +92,8 @@ npm run start 或 yarn start
 三、启动frontend
 
 ```bash
-# 进入supervisor目录
-cd supervisor/
+# 进入react-news-manage目录
+cd react-news-manage/
 
 # 安装依赖
 npm install 或 yarn
