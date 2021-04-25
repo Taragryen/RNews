@@ -11,6 +11,7 @@ export default function NewsPreviewModal({ content, visible, onClose }: Props) {
   return (
     <>
       <Modal
+        title="新闻预览"
         width="70%"
         visible={visible}
         destroyOnClose

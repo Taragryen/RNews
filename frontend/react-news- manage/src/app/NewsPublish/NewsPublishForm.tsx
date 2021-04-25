@@ -6,10 +6,12 @@ import { layout, tailLayout } from '../../utils/formLayout';
 import CategoriesSelect from '../CategoriesManage/CategoriesSelect';
 
 export function NewsPublishForm() {
+  const [form] = Form.useForm();
   const onFinish = async (values: any) => {
     values.content = values.content.toHTML();
     await publishNew(values);
     message.success('新闻发布成功');
+    form.resetFields();
   };
 
   const onFinishFailed = (errorInfo: any) => {
@@ -22,6 +24,7 @@ export function NewsPublishForm() {
       name="newsPublishForm"
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
+      form={form}
     >
       <Form.Item
         label="标题"

@@ -34,7 +34,6 @@ exports.deleteCategory = async (ctx) => {
   };
   try {
     await Category.remove({ _id: ctx.params.id });
-    resp.msg = "success";
   } catch (error) {
     resp.msg = error;
   }

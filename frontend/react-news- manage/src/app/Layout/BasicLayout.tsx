@@ -78,7 +78,7 @@ const BasicLayout: React.FC<Props> = (props: Props) => {
           <Card style={{ height: '100%' }}>{props.children}</Card>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          {`News Manage © ${new Date().getFullYear()} Created by XuShiZhao`}
+          {`News Manage © ${new Date().getFullYear()} Created by 徐士钊`}
         </Footer>
       </Layout>
     </Layout>

@@ -24,3 +24,17 @@ export function publishNew(news: any) {
     data: news,
   });
 }
+
+/**更新新闻 */
+export function updateNew(
+  id: string,
+  data: {
+    [key: string]: any;
+  }
+) {
+  return request({
+    url: `/news/${id}`,
+    method: 'put',
+    data: data,
+  });
+}
