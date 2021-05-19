@@ -1,6 +1,7 @@
 import { Card, Divider } from "antd";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { New } from "../common/types";
 import styles from "../styles/topNews.module.css";
 
 const data: {
@@ -64,6 +65,18 @@ const data: {
  * 新闻热榜
  */
 export function TopNews() {
+  const [data, setData] = useState<New[]>([]);
+
+  const loadData = async () => {
+    const res = await fetch("http://localhost:5000/api/top");
+    const data = await res.json();
+    setData(data.data.list);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
   return (
     <Card title="新闻热榜" style={{ borderRadius: 5, border: "none" }}>
       {data.map((item, index) => {

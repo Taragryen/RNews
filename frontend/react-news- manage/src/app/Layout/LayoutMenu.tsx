@@ -17,9 +17,9 @@ const LayoutMenu = () => {
       <Menu.Item key="/news/publish" icon={<FormOutlined />}>
         <Link to="/news/publish">新闻发布</Link>
       </Menu.Item>
-      <Menu.Item key="/news/review" icon={<EyeOutlined />}>
+      {/* <Menu.Item key="/news/review" icon={<EyeOutlined />}>
         <Link to="/news/review">新闻审核</Link>
-      </Menu.Item>
+      </Menu.Item> */}
       <Menu.Item key="/news/manage" icon={<ReadOutlined />}>
         <Link to="/news/manage">新闻管理</Link>
       </Menu.Item>

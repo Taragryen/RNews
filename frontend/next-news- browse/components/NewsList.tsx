@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { New } from "../common/types";
 import utilStyles from "../styles/utils.module.css";
-import { dateFormat } from "../utils/dateFormat";
+import dateFormat from "../utils/dateFormat";
 
 const IconText = ({
   icon,
@@ -58,7 +58,7 @@ export function NewsList({ allNewsData }: { allNewsData: New[] }) {
                 <ShareAltOutlined />
               </Tooltip>,
             ]}
-            extra={<img width={272} alt="logo" src={item.pic} />}
+            extra={<img width={120} alt="logo" src={item.pic} />}
           >
             <List.Item.Meta
               title={
@@ -70,6 +70,7 @@ export function NewsList({ allNewsData }: { allNewsData: New[] }) {
                 <Space size="large">
                   <span>{item.src}</span>
                   <span>{dateFormat(item.releaseTime)}</span>
+                  <span>{item.category}</span>
                 </Space>
               }
             />

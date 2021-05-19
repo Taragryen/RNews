@@ -9,6 +9,8 @@ router
   .get("/news", newController.getNews)
   .put("/news/:id", newController.updateNew)
   .get("/news/:id", newController.getNew)
-  .get("/top", newController.getTopNews);
+  .get("/top", newController.getTopNews)
+  .get("/ids", newController.getNewIds)
+  .get("/allnews", newController.getAllNews);
 
 module.exports = router.routes();

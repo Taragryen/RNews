@@ -9,9 +9,13 @@ import dateFormat from '../../utils/dateFormat';
 export default function NewsTable({
   showModal,
   getContent,
+  getNewData,
+  showEditModal,
 }: {
   showModal: () => void;
   getContent: (content: string) => void;
+  getNewData: (newData: New) => void;
+  showEditModal: () => void;
 }) {
   const [data, setData] = useState<New[]>([]);
 
@@ -89,7 +93,15 @@ export default function NewsTable({
               查看
             </a>
             <Divider type="vertical" />
-            <a>编辑</a>
+            <a
+              onClick={e => {
+                e.preventDefault();
+                getNewData(record);
+                showEditModal();
+              }}
+            >
+              编辑
+            </a>
             <Divider type="vertical" />
             <Popconfirm
               placement="topRight"

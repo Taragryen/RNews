@@ -3,7 +3,7 @@ import request from '../utils/request';
 /**查询新闻列表 */
 export function newsList() {
   return request({
-    url: '/news',
+    url: '/allnews',
     method: 'get',
   });
 }

@@ -57,6 +57,33 @@ exports.getNews = async (ctx) => {
   const news = await New.find(
     {
       title: { $regex: reg },
+      isReviewed: true,
+    },
+    { __v: 0 },
+    (err) => {
+      if (err) result.msg = err;
+    }
+  )
+    .skip(parseInt(offset))
+    .limit(parseInt(limit));
+  result.data.total = news.length;
+  result.data.list = news;
+  ctx.body = result;
+};
+
+/**获取所有新闻 */
+exports.getAllNews = async (ctx) => {
+  const limit = ctx.request.query.limit || null;
+  const offset = ctx.request.query.offset || null;
+  const query = ctx.request.query.query || "";
+  const reg = new RegExp(query, "i");
+  const result = {
+    msg: "ok",
+    data: {},
+  };
+  const news = await New.find(
+    {
+      title: { $regex: reg },
     },
     { __v: 0 },
     (err) => {
@@ -71,6 +98,24 @@ exports.getNews = async (ctx) => {
 };
 
 /**
+ * 获取新闻id
+ */
+exports.getNewIds = async (ctx) => {
+  const result = {
+    msg: "ok",
+    data: {},
+  };
+  const news = await New.find({}, { _id: 1 }, (err) => {
+    if (err) result.msg = err;
+  });
+  const ids = news.map((item) => {
+    return item._id;
+  });
+  result.data = ids;
+  ctx.body = result;
+};
+
+/**
  * 获取热榜新闻
  */
 exports.getTopNews = async (ctx) => {
@@ -78,9 +123,15 @@ exports.getTopNews = async (ctx) => {
     msg: "ok",
     data: {},
   };
-  const news = await New.find({}, { __v: 0 }, (err) => {
-    if (err) result.msg = err;
-  })
+  const news = await New.find(
+    {
+      isReviewed: true,
+    },
+    { __v: 0 },
+    (err) => {
+      if (err) result.msg = err;
+    }
+  )
     .sort({ readCount: -1 })
     .limit(10);
   result.data.total = news.length;
@@ -96,7 +147,7 @@ exports.getNew = async (ctx) => {
   const resp = await New.findById(ctx.params.id, (err) => {
     if (err) result.msg = err;
   });
-  result.data.new = resp;
+  result.data = resp;
   ctx.body = result;
 };
 
